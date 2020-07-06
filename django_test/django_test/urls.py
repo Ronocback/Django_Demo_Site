@@ -4,7 +4,7 @@ from django.contrib   import admin
 from django_test import views 
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("quiz", include("quiz.urls")),
+    path("", views.index, name="home"),
+    path("quiz/", include("quiz.urls")),
     url('admin/', admin.site.urls),
 ]
