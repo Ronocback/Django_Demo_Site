@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>{% block title %}Django Demo Site{% endblock %}</title>
+    <link rel="stylesheet" href="../../static/base/style.css">
+</head>
+
+<body>
+    <a href="/" id="title">Django Demo Site</a>
+    <div id="grid-container">
+        <div id="sidebar">
+            {% block sidebar %}
+            <h2>Menu</h2>
+            <ul>
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="/quiz">Arbitrary Quiz Game!</a></li>
+            </ul>
+            {% endblock %}
+        </div>
+        
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>
