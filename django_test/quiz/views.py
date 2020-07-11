@@ -10,7 +10,11 @@ def index(request):
 
 
 def detail(request, question_id):
-    print(question_id)
-    return HttpResponse( question_id)
+    print(str(Question.objects.all()))
+    question = Question.objects.get(id=question_id)
+    context = { 'requested_question' : question }
+    if context:
+        print(context)
+    return render(request, 'details/index.html', context)
 
 # Create your views here.
