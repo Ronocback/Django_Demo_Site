@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+{% block content %}
+<h1>Leaderboard</h1>
+<ul>
+{% for record in leaderboard_list %}
+    <li>{{record}}</li>
+{% endfor %}
+</ul>
+{% endblock %}
