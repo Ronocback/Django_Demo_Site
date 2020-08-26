@@ -9,5 +9,6 @@ urlpatterns = [
     path("", views.index, name="home"),
     path("quiz/", include("quiz.urls")),
     path('leaderboard/', include("leaderboard.urls")),
+    path("score/", include("score_preview.urls")),
     url('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

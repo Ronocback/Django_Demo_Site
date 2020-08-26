@@ -2,17 +2,20 @@
 {% block content %}
 <h1>The Arbitrary Quiz Game!</h1>
 {% if latest_question_list %}
+<form action="/score/" method="POST" >
     <ul>
     {% for question in latest_question_list %}
         <li class="question"><a href="/quiz/{{ question.id }}/">{{ question.question_text }}</a></li>
             {% for option in latest_option_list %}
                 {% if option.question == question %}
-                <label><input type="radio" name="{{question.id}}" class="optionRadio">{{option.choice_text}}</label><br/>
+                <label for="{{option.id}}-opt">{{option.choice_text}}</label>
+                <input id="{{option.id}}-opt" type="radio" name="{{question.id}}-quest" class="optionRadio" value="{{option.choice_text}}"> </br>
                 {% endif %}
             {% endfor %}
     {% endfor %}
     </ul>
-    <button>Submit</button>
+    <button type="submit">Submit</button>
+</form>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
