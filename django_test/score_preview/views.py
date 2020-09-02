@@ -5,6 +5,7 @@ from quiz.models import Question, Option
 @csrf_exempt
 def index(request):
     print("scoring")
+    print(request.POST)
     score = 0
     points = 0
     latest_option_list = Option.objects.all()
@@ -18,12 +19,12 @@ def index(request):
                 print("ls_quest")
         answer = request.POST.get(question)
         for option in latest_option_list:
-            if option.choice_text == answer:
+            if option.choice_text == answer and option.correct:
                 score += points
                 print("ls_opt")
     context = {"score":str(score)}
 
 
-
+    print("score_post")
     print(request.POST)
     return render(request, 'score_preview/index.html', context)

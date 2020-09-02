@@ -3,7 +3,7 @@
 <h1>Leaderboard</h1>
 <ul>
 {% for record in leaderboard_list %}
-    <li>{{record}}</li>
+    <li>{{record.username}} {{record.score}}</li>
 {% endfor %}
 </ul>
 {% endblock %}
